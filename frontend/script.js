@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function fetchCounter() {
+    console.log('==== DOM CONTENT LOADED, CALLING fetchCounter function') // logging
     fetch('http://localhost:5000/counter')
         .then(response => response.json())
         .then(data => {
@@ -12,6 +13,7 @@ function fetchCounter() {
 }
 
 function incrementCounter() {
+    console.log('==== BUTTON CLICKED, CALLING incrementCounter function') // logging
     fetch('http://localhost:5000/increment', {
         method: 'POST'
     })
