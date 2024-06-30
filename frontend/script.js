@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function fetchCounter() {
     console.log('==== DOM CONTENT LOADED, CALLING fetchCounter function') // logging
-    fetch('http://backend:5000/counter')
+    fetch('http://backend:5000/api/counter')
         .then(response => response.json())
         .then(data => {
             document.getElementById('counter').innerText = data.counter;
@@ -14,7 +14,7 @@ function fetchCounter() {
 
 function incrementCounter() {
     console.log('==== BUTTON CLICKED, CALLING incrementCounter function') // logging
-    fetch('http://backend:5000/increment', {
+    fetch('http://backend:5000/api/increment', {
         method: 'POST'
     })
     .then(response => response.json())
