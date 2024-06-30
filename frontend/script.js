@@ -3,11 +3,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function fetchCounter() {
-    console.log('==== DOM CONTENT LOADED, CALLING fetchCounter function') // logging
+    console.log('====> DOM CONTENT LOADED, CALLING fetchCounter FUNCTION.') // logging
     fetch('http://backend:5000/api/counter')
-        .then(response => {
-            console.log(response)
-            response.json()})
+        .then(response => response.json())
         .then(data => {
             document.getElementById('counter').innerText = data.counter;
         })
@@ -15,7 +13,7 @@ function fetchCounter() {
 }
 
 function incrementCounter() {
-    console.log('==== BUTTON CLICKED, CALLING incrementCounter function') // logging
+    console.log('====> BUTTON CLICKED, CALLING incrementCounter FUNCTION.') // logging
     fetch('http://backend:5000/api/increment', {
         method: 'POST'
     })
