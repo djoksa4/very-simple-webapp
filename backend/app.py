@@ -35,9 +35,8 @@ def init_db():
     cursor.close()
     conn.close()
 
-@app.route('/counter', methods=['GET'])
+@app.route('/api/counter', methods=['GET'])
 def get_counter():
-    print('==== /counter ENDOINT RECIVED REQUEST, CALLING get_counter function.') # logging
     conn = get_db_connection()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
     cursor.execute('SELECT count FROM counter WHERE id = 1')
@@ -46,9 +45,8 @@ def get_counter():
     conn.close()
     return jsonify({"counter": counter['count']})
 
-@app.route('/increment', methods=['POST'])
+@app.route('/api/increment', methods=['POST'])
 def increment_counter():
-    print('==== /increment ENDOINT RECIVED REQUEST, CALLING increment_counter function.') # logging
     conn = get_db_connection()
     cursor = conn.cursor(cursor_factory=RealDictCursor)
     cursor.execute('UPDATE counter SET count = count + 1 WHERE id = 1 RETURNING count')
